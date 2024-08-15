@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">Decode Message from Image</h2>
+<form method="POST" enctype="multipart/form-data" class="mt-4">
+    <div class="form-group">
+        <label for="image">Select Encoded Image</label>
+        <input type="file" class="form-control-file" id="image" name="image" required>
+    </div>
+    <div class="form-group">
+        <label for="key">Enter Key</label>
+        <input type="text" class="form-control" id="key" name="key" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Decode</button>
+</form>
+
+{% if message %}
+    <div class="mt-4 alert alert-success">
+        <h5>Decoded Message:</h5>
+        <p>{{ message }}</p>
+    </div>
+{% endif %}
+{% endblock %}
